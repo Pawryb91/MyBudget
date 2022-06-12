@@ -4,9 +4,9 @@
 #include <algorithm>
 #include <string>
 
-//#include "MyBudget.h"
+#include "MyBudget.h"
 #include "Markup.h"
-//#include "BalanceManager.h"
+#include "BalanceManager.h"
 
 using namespace std;
 
@@ -14,7 +14,7 @@ using namespace std;
 int main() {
 
 
- //   MyBudget myBudget;
+    MyBudget myBudget;
 
     char Choice;
 
