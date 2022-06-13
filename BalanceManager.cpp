@@ -51,7 +51,13 @@ void BalanceManager::CalculateBalanceCurrentMonth(int LoggedUserId) {
     IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId);
     ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId);
 
-    ShowBalance(dataBeginInt,dataEndInt,LoggedUserId);
+
+    if (IncomeSum == 0 && ExpenseSum == 0){
+        cout << "There are no Incomes/Expenses in that period" << endl;
+        system("pause");
+    }
+    else
+        ShowBalance(dataBeginInt,dataEndInt,LoggedUserId);
 }
 
 
@@ -84,7 +90,12 @@ void BalanceManager::CalculateBalanceLastMonth(int LoggedUserId) {
     IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId);
     ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId);
 
-    ShowBalance(dataBeginInt,dataEndInt,LoggedUserId);
+    if (IncomeSum == 0 && ExpenseSum == 0){
+        cout << "There are no Incomes/Expenses in that period" << endl;
+        system("pause");
+    }
+    else
+        ShowBalance(dataBeginInt,dataEndInt,LoggedUserId);
 }
 
 void BalanceManager::CalculateSelectedPeriodBalance(int LoggedUserId) {
@@ -117,7 +128,12 @@ void BalanceManager::CalculateSelectedPeriodBalance(int LoggedUserId) {
     IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt, LoggedUserId);
     ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt, LoggedUserId);
 
-    ShowBalance(dataBeginInt,dataEndInt, LoggedUserId);
+    if (IncomeSum == 0 && ExpenseSum == 0){
+        cout << "There are no Incomes/Expenses in that period" << endl;
+        system("pause");
+    }
+    else
+        ShowBalance(dataBeginInt,dataEndInt,LoggedUserId);
 }
 
 bool lowerEx (Expense expenseFirst, Expense expenseSecond) {
