@@ -133,4 +133,5 @@ bool UserManager::IsUserLoggedIn() {
 }
 void UserManager::ChangeLoggedUserPassword (int LoggedUserId) {
     userFile.ChangePassword(LoggedUserId);
+    Users = userFile.LoadUsersFromFile();
 }
