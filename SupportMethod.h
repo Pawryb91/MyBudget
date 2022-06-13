@@ -17,8 +17,8 @@ public:
     static string LoadLine();
     static string ChangeFirstLetterToUpercaseRestLowercase(string text);
     static char LoadCharacter();
-    static int LoadIntiger();
     static float LoadFloat();
     static string ConversionCommaToDot(string text);
+    static bool CheckIfStringCouldBeConverseToFloat(string EnterString);
 };
 #endif // SUPPORTMETHOD_H

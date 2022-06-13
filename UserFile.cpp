@@ -51,7 +51,6 @@ xml.Load("users.xml");
 
     xml.Save("users.xml");
 
-
 }
 
 User UserFile::GetUserDataFromFile () {
