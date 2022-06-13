@@ -96,6 +96,10 @@ void BalanceManager::CalculateSelectedPeriodBalance(int LoggedUserId) {
     int dataBeginInt;
     int dataEndInt;
 
+    bool DateOrder = false;
+
+    while(DateOrder == false){
+
     cout << "Enter begin of period "<< endl;
     CurrentData = dataManager.GetSpecificData();
 
@@ -105,6 +109,10 @@ void BalanceManager::CalculateSelectedPeriodBalance(int LoggedUserId) {
     CurrentData = dataManager.GetSpecificData();
 
     dataEndInt = SupportMethod::ConversionStringToInt((dataManager.RemovePauseFromEnteredData(CurrentData)));
+
+    DateOrder = dataManager.CheckDateOrder(dataBeginInt,dataEndInt);
+
+    }
 
     IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt, LoggedUserId);
     ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt, LoggedUserId);
