@@ -72,40 +72,45 @@ char SupportMethod::LoadCharacter() {
     return Character;
 
 }
-int SupportMethod::LoadIntiger() {
-
-    string EnterString = "";
-    int NubmerIntiger = 0;
-
-    while (true) {
-        getline(cin, EnterString);
-
-        stringstream myStream(EnterString);
-        if (myStream >> NubmerIntiger)
-            break;
-        cout << "It is not a number. Please enter again. " << endl;
-    }
-    return NubmerIntiger;
-
-}
 
 float SupportMethod::LoadFloat() {
 
     string EnterString = "";
     float NumberFloat = 0;
+    bool IfStringCouldBeFloat = false;
 
-    while (true) {
+    while (IfStringCouldBeFloat == false) {
         getline(cin, EnterString);
 
         EnterString = ConversionCommaToDot(EnterString);
 
-        NumberFloat = stof(EnterString);
-        //stringstream myStream(EnterString);
-        //if (myStream >> NubmerIntiger)
-        break;
-        //cout << "It is not a number. Please enter again. " << endl;
+        IfStringCouldBeFloat = CheckIfStringCouldBeConverseToFloat(EnterString);
     }
+    NumberFloat = stof(EnterString);
     return NumberFloat;
+}
+
+bool SupportMethod::CheckIfStringCouldBeConverseToFloat(string EnterString) {
+
+    int amountOfDots = 0;
+    size_t condition_1 = EnterString.find_first_not_of("0123456789.");
+
+    while(amountOfDots < 2) {
+
+        size_t condition_2 = EnterString.find(".");
+
+        if (condition_2!=std::string::npos) {
+            amountOfDots++;
+            EnterString = EnterString.erase(condition_2,1);
+        } else
+            break;
+    }
+    if (condition_1==std::string::npos && amountOfDots < 2 && EnterString.size()>0) {
+        return true;
+    } else {
+        cout << "It is not a number. Please enter again. " << endl;
+        return false;
+    }
 
 }
 
