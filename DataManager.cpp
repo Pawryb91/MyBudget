@@ -74,6 +74,16 @@ string DataManager::EnterSpecificData() {
 
 }
 
+bool DataManager::CheckDateOrder(int firstDate, int secondDate){
+
+    if (firstDate <= secondDate)
+        return true;
+    else {
+        cout << "Date order is incorrect. Please enter dates again" << endl;
+            return false;
+    }
+}
+
 
 
 string DataManager::SubstractYear (string date) {

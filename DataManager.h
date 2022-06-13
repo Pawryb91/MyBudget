@@ -32,6 +32,7 @@ public:
     int ChangeDateStringToDateInt (string dateString);
     int GetNumberOfDaysInMonth(int year, int month);
     string DateMenu(char choice);
+    bool CheckDateOrder(int firstDate, int secondDate);
 
 };
 
