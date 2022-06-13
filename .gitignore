@@ -36,4 +36,5 @@ obj/
 MyBudget.layout
 MyBudget.cbp
 MyBudget.depend
+MyBudget.cscope_file_list
 *.xml
