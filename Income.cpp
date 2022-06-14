@@ -34,6 +34,12 @@ void Income::SetAmount (float NewAmount) {
         cout << "Amount can't be negative." << endl;
 }
 
+void Income::SetAmountString (string NewAmount) {
+
+    AmountString = NewAmount;
+
+}
+
 
 int Income::GetIncomeId() {
     return IncomeId;
@@ -52,7 +58,11 @@ string Income::GetDateString() {
 string Income::GetItem() {
     return Item;
 }
-float Income::GetAmount() {
+
+float Income::GetAmountFloat() {
     return Amount;
+}
+string Income::GetAmount() {
+    return AmountString;
 }
 

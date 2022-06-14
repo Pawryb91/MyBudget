@@ -13,7 +13,7 @@ float BalanceManager::CalculateIncomeSum(int dateBegin, int dateEnd, int LoggedU
 
         if(SortedIncomes[i].GetUserId() == LoggedUserId) {
             if(SortedIncomes[i].GetDateInt()>= dateBegin && SortedIncomes[i].GetDateInt() <= dateEnd )
-                IncomeSum = IncomeSum + SortedIncomes[i].GetAmount();
+                IncomeSum = IncomeSum + SortedIncomes[i].GetAmountFloat();
         }
     }
     return IncomeSum;
@@ -25,7 +25,7 @@ float BalanceManager::CalculateExpenseSum(int dateBegin, int dateEnd, int Logged
 
         if(SortedExpense[i].GetUserId() == LoggedUserId) {
             if(SortedExpense[i].GetDateInt()>= dateBegin && SortedExpense[i].GetDateInt() <= dateEnd)
-                ExpenseSum = ExpenseSum + SortedExpense[i].GetAmount();
+                ExpenseSum = ExpenseSum + SortedExpense[i].GetAmountFloat();
         }
     }
     return ExpenseSum;

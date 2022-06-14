@@ -33,6 +33,12 @@ void Expense::SetAmount (float NewAmount) {
         cout << "Amount can't be negative." << endl;
 }
 
+void Expense::SetAmountString (string NewAmount) {
+
+    AmountString = NewAmount;
+
+}
+
 
 int Expense::GetExpenseId() {
     return ExpenseId;
@@ -49,6 +55,9 @@ string Expense::GetDateString() {
 string Expense::GetItem() {
     return Item;
 }
-float Expense::GetAmount() {
+float Expense::GetAmountFloat() {
     return Amount;
+}
+string Expense::GetAmount() {
+    return AmountString;
 }

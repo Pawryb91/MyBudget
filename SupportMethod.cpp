@@ -73,10 +73,10 @@ char SupportMethod::LoadCharacter() {
 
 }
 
-float SupportMethod::LoadFloat() {
+string SupportMethod::LoadFloat() {
 
     string EnterString = "";
-    float NumberFloat = 0;
+    string NumberFloat = "";
     bool IfStringCouldBeFloat = false;
 
     while (IfStringCouldBeFloat == false) {
@@ -86,8 +86,11 @@ float SupportMethod::LoadFloat() {
 
         IfStringCouldBeFloat = CheckIfStringCouldBeConverseToFloat(EnterString);
     }
-    NumberFloat = stof(EnterString);
-    return NumberFloat;
+
+    cout << "Enter String "<< EnterString << endl;
+
+    system ("pause");
+    return EnterString;
 }
 
 bool SupportMethod::CheckIfStringCouldBeConverseToFloat(string EnterString) {
