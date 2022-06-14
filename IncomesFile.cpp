@@ -22,6 +22,9 @@ void IncomesFile::AddIncomeToFile(Income income){
     xml.AddElem("Amount", income.GetAmount());
 
     xml.Save("incomes.xml");
+
+    cout << "Income has been added successfully " << endl;
+    system("pause");
 }
 vector<Income> IncomesFile::LoadIncomesFromFile (){
 
@@ -39,6 +42,7 @@ vector<Income> IncomesFile::LoadIncomesFromFile (){
         Incomes.push_back(income);
 
     }
+
     return Incomes;
 
 

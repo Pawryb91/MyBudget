@@ -21,6 +21,9 @@ void ExpensesFile::AddExpenseToFile(Expense expense) {
     xml.AddElem("Amount",expense.GetAmount());
 
     xml.Save("expenses.xml");
+
+    cout << "Expense has been added successfully " << endl;
+    system("pause");
 }
 vector<Expense> ExpensesFile::LoadExpensesFromFile () {
 

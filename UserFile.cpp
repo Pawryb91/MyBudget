@@ -41,7 +41,7 @@ xml.Load("users.xml");
     if (Data == LoggedUserIDstring){
     xml.FindElem("Password");
     xml.SetData(NewPassword);
-    cout << "Password has been changed succesfully" << endl;
+    cout << "Password has been changed successfully" << endl;
     system("pause");
     break;
     }

@@ -87,9 +87,6 @@ string SupportMethod::LoadFloat() {
         IfStringCouldBeFloat = CheckIfStringCouldBeConverseToFloat(EnterString);
     }
 
-    cout << "Enter String "<< EnterString << endl;
-
-    system ("pause");
     return EnterString;
 }
 
