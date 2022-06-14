@@ -14,15 +14,15 @@ class BalanceManager {
     DataManager dataManager;
     Income income;
     Expense expense;
-    float Balance;
-    float IncomeSum;
-    float ExpenseSum;
+    float Balance = 0;
+    float IncomeSum = 0;
+    float ExpenseSum = 0;
     vector <Income> SortedIncomes;
     vector <Expense> SortedExpense;
 
 
-    float CalculateIncomeSum(int dateBegin, int dateEnd,int LoggedUserId);
-    float CalculateExpenseSum(int dateBegin, int dateEnd,int LoggedUserId);
+    float CalculateIncomeSum(int dateBegin, int dateEnd,int LoggedUserId,vector<Income> Incomes);
+    float CalculateExpenseSum(int dateBegin, int dateEnd,int LoggedUserId,vector<Expense> Expenses);
     vector<Income> IncomeVectorSort(vector<Income> Incomes);
     vector<Expense> ExpenseVectorSort(vector<Expense> Expenses);
 
@@ -34,16 +34,9 @@ class BalanceManager {
 
 public:
 
-    BalanceManager(vector <Income>Incomes, vector <Expense>Expense) {
-        IncomeSum = 0;
-        ExpenseSum = 0;
-        SortedIncomes = IncomeVectorSort(Incomes);
-        SortedExpense = ExpenseVectorSort(Expense);
-    }
-
-    void CalculateBalanceCurrentMonth(int LoggedUserId);
-    void CalculateBalanceLastMonth(int LoggedUserId);
-    void CalculateSelectedPeriodBalance(int LoggedUserId);
+    void CalculateBalanceCurrentMonth(int LoggedUserId, vector<Income> Incomes , vector<Expense> Expenses);
+    void CalculateBalanceLastMonth(int LoggedUserId, vector<Income> Incomes, vector<Expense> Expenses);
+    void CalculateSelectedPeriodBalance(int LoggedUserId, vector<Income> Incomes, vector<Expense> Expenses);
 
 
 };

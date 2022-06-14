@@ -59,5 +59,6 @@ float Expense::GetAmountFloat() {
     return Amount;
 }
 string Expense::GetAmount() {
+    AmountString = SupportMethod::ConversionFloatToString(Amount);
     return AmountString;
 }
