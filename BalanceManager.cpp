@@ -6,9 +6,9 @@
 
 using namespace std;
 
-float BalanceManager::CalculateIncomeSum(int dateBegin, int dateEnd, int LoggedUserId) {
+float BalanceManager::CalculateIncomeSum(int dateBegin, int dateEnd, int LoggedUserId,vector<Income> Incomes) {
 
-
+SortedIncomes = IncomeVectorSort(Incomes);
     for(int i = 0; i < SortedIncomes.size(); i++) {
 
         if(SortedIncomes[i].GetUserId() == LoggedUserId) {
@@ -19,8 +19,9 @@ float BalanceManager::CalculateIncomeSum(int dateBegin, int dateEnd, int LoggedU
     return IncomeSum;
 
 }
-float BalanceManager::CalculateExpenseSum(int dateBegin, int dateEnd, int LoggedUserId) {
+float BalanceManager::CalculateExpenseSum(int dateBegin, int dateEnd, int LoggedUserId,vector<Expense> Expenses) {
 
+SortedExpense = ExpenseVectorSort(Expenses);
     for(int i = 0; i < SortedExpense.size(); i++) {
 
         if(SortedExpense[i].GetUserId() == LoggedUserId) {
@@ -32,7 +33,7 @@ float BalanceManager::CalculateExpenseSum(int dateBegin, int dateEnd, int Logged
 
 }
 
-void BalanceManager::CalculateBalanceCurrentMonth(int LoggedUserId) {
+void BalanceManager::CalculateBalanceCurrentMonth(int LoggedUserId, vector<Income> Incomes , vector<Expense> Expenses) {
 
 
     string dataBeginString;
@@ -48,8 +49,8 @@ void BalanceManager::CalculateBalanceCurrentMonth(int LoggedUserId) {
     day = SupportMethod::ConversionStringToInt(dataManager.SubstractDay(CurrentData));
 
     dataBeginInt = dataEndInt - day + 1;
-    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId);
-    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId);
+    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId,Incomes);
+    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId, Expenses);
 
 
     if (IncomeSum == 0 && ExpenseSum == 0){
@@ -61,7 +62,7 @@ void BalanceManager::CalculateBalanceCurrentMonth(int LoggedUserId) {
 }
 
 
-void BalanceManager::CalculateBalanceLastMonth(int LoggedUserId) {
+void BalanceManager::CalculateBalanceLastMonth(int LoggedUserId, vector<Income> Incomes , vector<Expense> Expenses) {
 
 
     string dataBeginString;
@@ -87,8 +88,8 @@ void BalanceManager::CalculateBalanceLastMonth(int LoggedUserId) {
     dataEndInt = dataEndInt - 99 - dayCurrentData + dayInMonth;
 
 
-    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId);
-    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId);
+    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId,Incomes);
+    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId, Expenses);
 
     if (IncomeSum == 0 && ExpenseSum == 0){
         cout << "There are no Incomes/Expenses in that period" << endl;
@@ -98,7 +99,7 @@ void BalanceManager::CalculateBalanceLastMonth(int LoggedUserId) {
         ShowBalance(dataBeginInt,dataEndInt,LoggedUserId);
 }
 
-void BalanceManager::CalculateSelectedPeriodBalance(int LoggedUserId) {
+void BalanceManager::CalculateSelectedPeriodBalance(int LoggedUserId, vector<Income> Incomes , vector<Expense> Expenses) {
 
 
     string dataBeginString;
@@ -125,8 +126,8 @@ void BalanceManager::CalculateSelectedPeriodBalance(int LoggedUserId) {
 
     }
 
-    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt, LoggedUserId);
-    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt, LoggedUserId);
+    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId,Incomes);
+    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId, Expenses);
 
     if (IncomeSum == 0 && ExpenseSum == 0){
         cout << "There are no Incomes/Expenses in that period" << endl;
@@ -165,7 +166,7 @@ void BalanceManager::ShowIncomesData(int dateBegin, int dateEnd,int LoggedUserId
                 cout
                         << SortedIncomes[i].GetDateString()
                         << " " << SortedIncomes[i].GetItem()
-                        << " " << SortedIncomes[i].GetAmount() << endl;
+                        << " " << SortedIncomes[i].GetAmountFloat() << endl;
                 cout << endl;
             }
         }
@@ -180,7 +181,7 @@ void BalanceManager::ShowExpensesData(int dateBegin, int dateEnd,int LoggedUserI
 
                 cout    << SortedExpense[i].GetDateString()
                         << " " << SortedExpense[i].GetItem()
-                        << " " << SortedExpense[i].GetAmount() << endl;
+                        << " " << SortedExpense[i].GetAmountFloat() << endl;
                 cout << endl;
             }
         }

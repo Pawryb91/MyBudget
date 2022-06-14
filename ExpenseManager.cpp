@@ -35,7 +35,7 @@ Expense ExpenseManager::EnterNewExpenseData(int LoggedUserId) {
 
     cout<< "Enter new expense amount: " << endl;
 
-    expense.SetAmountString(SupportMethod::LoadFloat());
+    expense.SetAmount(SupportMethod::ConversionStringToFloat(SupportMethod::LoadFloat()));
 
     Expenses.push_back(expense);
 

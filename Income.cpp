@@ -63,6 +63,7 @@ float Income::GetAmountFloat() {
     return Amount;
 }
 string Income::GetAmount() {
+    AmountString = SupportMethod::ConversionFloatToString(Amount);
     return AmountString;
 }
 

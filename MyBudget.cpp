@@ -62,16 +62,16 @@ bool MyBudget::IsUserLoggedIn() {
     return userManager.IsUserLoggedIn();
 }
 void MyBudget::CalculateCurrentMonthBalance() {
-    BalanceManager balanceManager(incomeManager.Incomes, expenseManager.Expenses);
-    balanceManager.CalculateBalanceCurrentMonth(userManager.GetLoggedUserId());
+    BalanceManager balanceManager;
+    balanceManager.CalculateBalanceCurrentMonth(userManager.GetLoggedUserId(),incomeManager.Incomes, expenseManager.Expenses);
 }
 void MyBudget::CalculateLastMonthBalance() {
-    BalanceManager balanceManager(incomeManager.Incomes, expenseManager.Expenses);
-    balanceManager.CalculateBalanceLastMonth(userManager.GetLoggedUserId());
+    BalanceManager balanceManager;
+    balanceManager.CalculateBalanceLastMonth(userManager.GetLoggedUserId(),incomeManager.Incomes, expenseManager.Expenses);
 }
 void MyBudget::CalculateSelectedPeriodBalance() {
-    BalanceManager balanceManager(incomeManager.Incomes, expenseManager.Expenses);
-    balanceManager.CalculateSelectedPeriodBalance(userManager.GetLoggedUserId());
+    BalanceManager balanceManager;
+    balanceManager.CalculateSelectedPeriodBalance(userManager.GetLoggedUserId(),incomeManager.Incomes, expenseManager.Expenses);
 }
 void MyBudget::AddIncome() {
     incomeManager.AddNewIncome(userManager.GetLoggedUserId());
