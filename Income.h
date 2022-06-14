@@ -12,6 +12,7 @@ class Income {
     int DateInt;
     string DateString;
     string Item;
+    string AmountString;
     float Amount;
 
 public:
@@ -22,13 +23,15 @@ public:
     void SetDateInt (int NewDate);
     void SetItem (string NewItem);
     void SetAmount(float NewAmount);
+    void SetAmountString(string NewAmount);
 
     int GetIncomeId();
     int GetUserId();
     int GetDateInt();
     string GetDateString();
     string GetItem();
-    float GetAmount();
+    string GetAmount();
+    float GetAmountFloat();
 
 };
 

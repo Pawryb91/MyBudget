@@ -31,7 +31,7 @@ Income IncomeManager::EnterNewIncomeData(int LoggedUserId) {
 
     cout<< "Enter new income amount: " << endl;
 
-    income.SetAmount(SupportMethod::LoadFloat());
+    income.SetAmountString(SupportMethod::LoadFloat());
 
     Incomes.push_back(income);
 
