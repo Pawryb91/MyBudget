@@ -14,7 +14,6 @@ class MyBudget {
     IncomeManager incomeManager;
     ExpenseManager expenseManager;
     UserManager userManager;
-    //BalanceManager balanceManager;
 
     char ChoseOptionFromDateMenuForIncome();
     char ChoseOptionFromDateMenuForExpense();

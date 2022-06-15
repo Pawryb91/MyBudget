@@ -6,9 +6,8 @@
 
 using namespace std;
 
-float BalanceManager::CalculateIncomeSum(int dateBegin, int dateEnd, int LoggedUserId,vector<Income> Incomes) {
+float BalanceManager::CalculateIncomeSum(int dateBegin, int dateEnd, int LoggedUserId) {
 
-SortedIncomes = IncomeVectorSort(Incomes);
     for(int i = 0; i < SortedIncomes.size(); i++) {
 
         if(SortedIncomes[i].GetUserId() == LoggedUserId) {
@@ -19,9 +18,8 @@ SortedIncomes = IncomeVectorSort(Incomes);
     return IncomeSum;
 
 }
-float BalanceManager::CalculateExpenseSum(int dateBegin, int dateEnd, int LoggedUserId,vector<Expense> Expenses) {
+float BalanceManager::CalculateExpenseSum(int dateBegin, int dateEnd, int LoggedUserId) {
 
-SortedExpense = ExpenseVectorSort(Expenses);
     for(int i = 0; i < SortedExpense.size(); i++) {
 
         if(SortedExpense[i].GetUserId() == LoggedUserId) {
@@ -33,7 +31,7 @@ SortedExpense = ExpenseVectorSort(Expenses);
 
 }
 
-void BalanceManager::CalculateBalanceCurrentMonth(int LoggedUserId, vector<Income> Incomes , vector<Expense> Expenses) {
+void BalanceManager::CalculateBalanceCurrentMonth(int LoggedUserId) {
 
 
     string dataBeginString;
@@ -49,8 +47,8 @@ void BalanceManager::CalculateBalanceCurrentMonth(int LoggedUserId, vector<Incom
     day = SupportMethod::ConversionStringToInt(dataManager.SubstractDay(CurrentData));
 
     dataBeginInt = dataEndInt - day + 1;
-    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId,Incomes);
-    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId, Expenses);
+    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId);
+    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId);
 
 
     if (IncomeSum == 0 && ExpenseSum == 0){
@@ -62,7 +60,7 @@ void BalanceManager::CalculateBalanceCurrentMonth(int LoggedUserId, vector<Incom
 }
 
 
-void BalanceManager::CalculateBalanceLastMonth(int LoggedUserId, vector<Income> Incomes , vector<Expense> Expenses) {
+void BalanceManager::CalculateBalanceLastMonth(int LoggedUserId) {
 
 
     string dataBeginString;
@@ -88,8 +86,8 @@ void BalanceManager::CalculateBalanceLastMonth(int LoggedUserId, vector<Income> 
     dataEndInt = dataEndInt - 99 - dayCurrentData + dayInMonth;
 
 
-    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId,Incomes);
-    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId, Expenses);
+    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId);
+    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId);
 
     if (IncomeSum == 0 && ExpenseSum == 0){
         cout << "There are no Incomes/Expenses in that period" << endl;
@@ -99,7 +97,7 @@ void BalanceManager::CalculateBalanceLastMonth(int LoggedUserId, vector<Income> 
         ShowBalance(dataBeginInt,dataEndInt,LoggedUserId);
 }
 
-void BalanceManager::CalculateSelectedPeriodBalance(int LoggedUserId, vector<Income> Incomes , vector<Expense> Expenses) {
+void BalanceManager::CalculateSelectedPeriodBalance(int LoggedUserId) {
 
 
     string dataBeginString;
@@ -126,8 +124,8 @@ void BalanceManager::CalculateSelectedPeriodBalance(int LoggedUserId, vector<Inc
 
     }
 
-    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId,Incomes);
-    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId, Expenses);
+    IncomeSum = CalculateIncomeSum(dataBeginInt,dataEndInt,LoggedUserId);
+    ExpenseSum = CalculateExpenseSum(dataBeginInt,dataEndInt,LoggedUserId);
 
     if (IncomeSum == 0 && ExpenseSum == 0){
         cout << "There are no Incomes/Expenses in that period" << endl;

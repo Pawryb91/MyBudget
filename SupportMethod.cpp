@@ -73,10 +73,9 @@ char SupportMethod::LoadCharacter() {
 
 }
 
-string SupportMethod::LoadFloat() {
+string SupportMethod::LoadFloatString() {
 
     string EnterString = "";
-    string NumberFloat = "";
     bool IfStringCouldBeFloat = false;
 
     while (IfStringCouldBeFloat == false) {
@@ -88,6 +87,24 @@ string SupportMethod::LoadFloat() {
     }
 
     return EnterString;
+}
+
+float SupportMethod::LoadFloat() {
+
+    string EnterString = "";
+    float NumberFloat = 0;
+    bool IfStringCouldBeFloat = false;
+
+    while (IfStringCouldBeFloat == false) {
+        getline(cin, EnterString);
+
+        EnterString = ConversionCommaToDot(EnterString);
+
+        IfStringCouldBeFloat = CheckIfStringCouldBeConverseToFloat(EnterString);
+    }
+
+    NumberFloat = SupportMethod::ConversionStringToFloat(EnterString);
+    return NumberFloat;
 }
 
 bool SupportMethod::CheckIfStringCouldBeConverseToFloat(string EnterString) {

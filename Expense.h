@@ -13,7 +13,7 @@ class Expense {
     string DateString;
     string Item;
     string AmountString;
-    float Amount;
+    float AmountFloat;
 
 public:
 
@@ -22,7 +22,7 @@ public:
     void SetDateString (string NewDate);
     void SetDateInt (int NewDate);
     void SetItem (string NewItem);
-    void SetAmount (float NewAmount);
+    void SetAmountFloat (float NewAmount);
     void SetAmountString (string NewAmount);
 
     int GetExpenseId();
@@ -30,8 +30,8 @@ public:
     int GetDateInt();
     string GetDateString();
     string GetItem();
-    string GetAmount();
-    float GetAmountFloat ();
+    string GetAmountString();
+    float GetAmountFloat();
 
 };
 

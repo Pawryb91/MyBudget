@@ -20,13 +20,9 @@ Expense ExpenseManager::EnterNewExpenseData(int LoggedUserId) {
 
     expense.SetExpenseId(LastExpenseID + 1);
     expense.SetUserId(LoggedUserId);
-
     expense.SetDateString(dateString);
 
-
-
     dateInt = dataManager.ChangeDateStringToDateInt(dataManager.RemovePauseFromEnteredData(dateString));
-
     expense.SetDateInt(dateInt);
 
     cout<< "Enter new expense item: " << endl;
@@ -35,7 +31,8 @@ Expense ExpenseManager::EnterNewExpenseData(int LoggedUserId) {
 
     cout<< "Enter new expense amount: " << endl;
 
-    expense.SetAmount(SupportMethod::ConversionStringToFloat(SupportMethod::LoadFloat()));
+    expense.SetAmountString(SupportMethod::LoadFloatString());
+    expense.SetAmountFloat(SupportMethod::ConversionStringToFloat(expense.GetAmountString()));
 
     Expenses.push_back(expense);
 

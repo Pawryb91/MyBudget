@@ -19,7 +19,7 @@ void IncomesFile::AddIncomeToFile(Income income){
     xml.AddElem("UserId", income.GetUserId());
     xml.AddElem("Date", income.GetDateString());
     xml.AddElem("Item", income.GetItem());
-    xml.AddElem("Amount", income.GetAmount());
+    xml.AddElem("Amount", income.GetAmountString());
 
     xml.Save("incomes.xml");
 
@@ -78,7 +78,7 @@ Income IncomesFile::GetIncomeDataFromFile (){
     xml.FindElem("Amount");
     stringData = xml.GetData();
     floatData = SupportMethod::ConversionStringToFloat(stringData);
-    income.SetAmount(floatData);
+    income.SetAmountFloat(floatData);
 
     xml.OutOfElem();
 

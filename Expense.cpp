@@ -26,17 +26,16 @@ void Expense::SetDateString (string NewDate) {
 void Expense::SetItem (string NewItem) {
     Item = NewItem;
 }
-void Expense::SetAmount (float NewAmount) {
+void Expense::SetAmountFloat (float NewAmount) {
      if (NewAmount >= 0)
-    Amount = NewAmount;
+    AmountFloat = NewAmount;
     else
         cout << "Amount can't be negative." << endl;
 }
 
-void Expense::SetAmountString (string NewAmount) {
-
+void Expense::SetAmountString (string NewAmount)
+{
     AmountString = NewAmount;
-
 }
 
 
@@ -56,9 +55,8 @@ string Expense::GetItem() {
     return Item;
 }
 float Expense::GetAmountFloat() {
-    return Amount;
+    return AmountFloat;
 }
-string Expense::GetAmount() {
-    AmountString = SupportMethod::ConversionFloatToString(Amount);
+string Expense::GetAmountString() {
     return AmountString;
 }

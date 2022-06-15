@@ -27,17 +27,16 @@ void Income::SetDateString (string NewDate) {
 void Income::SetItem (string NewItem) {
     Item = NewItem;
 }
-void Income::SetAmount (float NewAmount) {
+void Income::SetAmountFloat (float NewAmount) {
     if (NewAmount >= 0)
-    Amount = NewAmount;
+    AmountFloat = NewAmount;
     else
         cout << "Amount can't be negative." << endl;
 }
 
-void Income::SetAmountString (string NewAmount) {
-
+void Income::SetAmountString (string NewAmount)
+{
     AmountString = NewAmount;
-
 }
 
 
@@ -60,10 +59,9 @@ string Income::GetItem() {
 }
 
 float Income::GetAmountFloat() {
-    return Amount;
+    return AmountFloat;
 }
-string Income::GetAmount() {
-    AmountString = SupportMethod::ConversionFloatToString(Amount);
+string Income::GetAmountString() {
     return AmountString;
 }
 

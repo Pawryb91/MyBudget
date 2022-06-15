@@ -18,7 +18,7 @@ void ExpensesFile::AddExpenseToFile(Expense expense) {
     xml.AddElem("UserId", expense.GetUserId());
     xml.AddElem("Date", expense.GetDateString());
     xml.AddElem("Item", expense.GetItem());
-    xml.AddElem("Amount",expense.GetAmount());
+    xml.AddElem("Amount",expense.GetAmountString());
 
     xml.Save("expenses.xml");
 
@@ -76,7 +76,7 @@ Expense ExpensesFile::GetExpenseDataFromFile () {
     xml.FindElem("Amount");
     stringData = xml.GetData();
     floatData = SupportMethod::ConversionStringToFloat(stringData);
-    expense.SetAmount(floatData);
+    expense.SetAmountFloat(floatData);
 
     xml.OutOfElem();
 
