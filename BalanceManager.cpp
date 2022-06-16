@@ -3,6 +3,7 @@
 #include "Expense.h"
 #include "SupportMethod.h"
 #include <algorithm>
+#include <iomanip>
 
 using namespace std;
 
@@ -161,10 +162,11 @@ void BalanceManager::ShowIncomesData(int dateBegin, int dateEnd,int LoggedUserId
 
         if(SortedIncomes[i].GetUserId() == LoggedUserId) {
             if(SortedIncomes[i].GetDateInt()>= dateBegin && SortedIncomes[i].GetDateInt() <= dateEnd) {
+                cout << fixed;
                 cout
                         << SortedIncomes[i].GetDateString()
                         << " " << SortedIncomes[i].GetItem()
-                        << " " << SortedIncomes[i].GetAmountFloat() << endl;
+                        << " " << setprecision(2)<< SortedIncomes[i].GetAmountFloat() << endl;
                 cout << endl;
             }
         }
@@ -176,10 +178,10 @@ void BalanceManager::ShowExpensesData(int dateBegin, int dateEnd,int LoggedUserI
     for(int i = 0; i < SortedExpense.size(); i++) {
         if(SortedExpense[i].GetUserId() == LoggedUserId) {
             if(SortedExpense[i].GetDateInt()>= dateBegin && SortedExpense[i].GetDateInt() <= dateEnd) {
-
+                cout << fixed;
                 cout    << SortedExpense[i].GetDateString()
                         << " " << SortedExpense[i].GetItem()
-                        << " " << SortedExpense[i].GetAmountFloat() << endl;
+                        << " " << setprecision(2)<< SortedExpense[i].GetAmountFloat() << endl;
                 cout << endl;
             }
         }
@@ -197,7 +199,8 @@ void BalanceManager::ShowBalance (int dateBeginInt, int dateEndInt, int LoggedUs
     ShowIncomesData(dateBeginInt,dateEndInt,LoggedUserId);
 
     cout << "----------------" << endl;
-    cout << "IncomeSum: " << IncomeSum << endl;
+    cout << fixed;
+    cout << "IncomeSum: " << setprecision(2) << IncomeSum << endl;
     cout << "----------------" << endl;
     cout << endl;
     cout << "----------------" << endl;
@@ -207,11 +210,13 @@ void BalanceManager::ShowBalance (int dateBeginInt, int dateEndInt, int LoggedUs
     ShowExpensesData(dateBeginInt,dateEndInt,LoggedUserId);
 
     cout << "----------------" << endl;
-    cout << "ExpenseSum: "<< ExpenseSum << endl;
+    cout << fixed;
+    cout << "ExpenseSum: "<< setprecision(2) << ExpenseSum << endl;
     cout << "----------------" << endl;
 
     cout << "================" << endl;
-    cout <<"Balance: " << IncomeSum - ExpenseSum << endl;
+    cout << fixed;
+    cout <<"Balance: " << setprecision(2) << IncomeSum - ExpenseSum << endl;
     cout << "================" << endl;
     system("pause");
 
